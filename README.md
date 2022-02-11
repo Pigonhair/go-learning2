@@ -58,3 +58,30 @@
    ```
    * index와 해당 값 순서대로 출력됨(index는 _같은걸로 생략해서 값만 보이게 출력 할 수 있음)
 * j := i++ 와 같은 Go에서 후치연산은 반환 값이 없기 때문에 불가능한 코드
+
+## Package
+* 패키지 : 코드 구조화(모듈) 및 재사용
+* 응집도(낮게), 결합도(높게) 하는게 클린코드
+* Go : 패키지 단위의 독립적이고 작은 단위로 개발 -> 작은 패키지를 결합해서 프로그램을 작성할 것을 권고(Go뿐만 아니라 어떤언어든지)
+-> 여기까지 Package를 사용하는 이유   
+
+### Package규칙   
+* 패키지 이름 = 디렉토리 이름
+* 같은 패키지 내 -> 소스파일들은 디렉토리명을 패키지 명으로 사용한다.
+* 네이밍 규칙 : 소문자 private, 대문자 : public
+* Go : main 패키지는 특별하게 인식 -> 컴파일러 공유 라이브러리 x, 프로그램의 시작점 start point!   
+
+### 다른 패키지를 import할 때
+* import할 패키지 내 함수 선언은 대문자로 시작
+* 패키지 명은 상위 디렉토리명
+* import방법은 import할 상위 디렉토리 위치까지 선언
+
+![image](https://user-images.githubusercontent.com/75151693/153543135-f032e714-b9bd-4209-bbee-0cfb1b7b1f2e.png)        <img src="https://user-images.githubusercontent.com/75151693/153543204-6339eb6e-7e3c-4499-9c18-f9adf01f2d31.png" width="30%" height="20%"/>
+* import한 것에 대한 별칭(alias도 가능하다)도 가능하다
+<img src="https://user-images.githubusercontent.com/75151693/153544054-cc84aa2e-7040-42e1-9935-e412010defd3.png" width="30%" height="20%"/>
+* import해놓고 일시적으로 사용하지 않을 때(빈식별자(_) 사용)
+<img src="https://user-images.githubusercontent.com/75151693/153544282-d2d56a35-a7f9-4c31-aca9-88facbfedffb.png" width="30%" height="20%"/>
+
+## go 초기화 함수(init 함수) -> section4/lib/lib.go와 section4/init3.go 확인하기 
+* init : 패키지 로드시에 가장 먼저 호출
+* 가장 먼저 초기화 되는 작업 작성 시 유용하다
