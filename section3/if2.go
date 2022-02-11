@@ -1,4 +1,4 @@
-//IF문(1)
+//IF문(2)
 
 package main
 

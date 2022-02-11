@@ -1,22 +1,36 @@
-//Switch문(2)
+//Switch문(3)
 package main
 
 import (
 	"fmt"
-	"math/rand"
-	"time"
 )
 
 func main() {
 	//예제1
-	rand.Seed(time.Now().UnixNano())
-	switch i := rand.Intn(100); {
-	case i >= 50 && i < 100:
-		fmt.Println("i -> ", i, " 50 이상 100 미만")
-	case i >= 25 && i < 50:
-		fmt.Println("i -> ", i, " 25 이상 50미만")
-	default:
-		fmt.Println("i -> ", i, " 기본 값")
+	a := 30 / 15
+	switch a {
+	case 2, 4, 6: //i가 2, 4, 6인 경우
+		fmt.Println("a -> ", a, "는 짝수")
+	case 1, 3, 5: //i가 1, 3, 5인 경우
+		fmt.Println("a -> ", a, "는 홀수")
+	}
+
+	//예제2
+	switch e := "go"; e {
+	case "java":
+		fmt.Println("Java!")
+		fallthrough
+	case "go":
+		fmt.Println("go!")
+		fallthrough
+	case "python":
+		fmt.Println("python!")
+		fallthrough
+	case "ruby":
+		fmt.Println("ruby!")
+		fallthrough
+	case "c":
+		fmt.Println("c!")
 	}
 
 }
